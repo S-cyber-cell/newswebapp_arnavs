@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+
+</head>
+<body>
+    <nav>
+        <div class="main-nav container flex">
+            <a href="#" onclick="reload()" class="company-logo">
+                <img src="../static/image.png" alt="company logo">
+            </a>
+            <div class="nav-links">
+                <ul class="flex">
+                    <li class="hover-link nav-item" id="ipl" onclick="onNavItemClick('ipl')">IPL</li>
+                    <li class="hover-link nav-item" id="finance" onclick="onNavItemClick('finance')">Finance</li>
+                    <li class="hover-link nav-item" id="politics" onclick="onNavItemClick('politics')">Politics</li>
+                </ul>
+                <script>
+                    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="i2mO9qic1k98TcYrk6chN";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+                    </script>
+            </div>
+            <div class="search-bar flex">    
+                <input id="search-text" type="text" class="news-input" placeholder="e.g. Science">
+                <button id="search-button" class="search-button">Search</button>
+                <!-- <button class="search-button">Search</button> -->
+                 <!-- <a href="fake_news_api.py">Presssss</a> -->
+             
+              
+                     <!-- <h1>Welcome to the News App</h1> -->
+                     <form action="/fakenews" method="GET">
+                        <button type="submit" class="btn">Go to Fake News Detector</button>
+                    </form>     
+            </div>  
+<div>
+  <input type="checkbox" class="checkbox" id="checkbox">
+  <label for="checkbox" class="checkbox-label">
+    <i class="fas fa-moon"></i>
+    <i class="fas fa-sun"></i>
+    <span class="ball"></span> 
+  </label>
+</div>
+
+        </div>
+    </nav>
+    <!-- Preferences Modal -->
+    <div id="preferences-modal" class="modal">
+        <div class="modal-content">
+        <h2>Select Your Interests</h2>
+        <form id="preferences-form">
+            <label><input type="checkbox" name="interest" value="ipl"> IPL</label><br>
+            <label><input type="checkbox" name="interest" value="finance"> Finance</label><br>
+            <label><input type="checkbox" name="interest" value="politics"> Politics</label><br>
+            <label><input type="checkbox" name="interest" value="science"> Science</label><br>
+            <label><input type="checkbox" name="interest" value="technology"> Technology</label><br>
+            <label><input type="checkbox" name="interest" value="world"> World</label><br><br>
+            <button type="submit" class="search-button">Save Preferences</button>
+        </form>
+        </div>
+    </div>
+  
+
+
+    <main>
+        <div class="cards-container container flex" id="cards-container">
+            
+        </div>
+    </main>
+
+    <template id="template-news-card">
+        <div class="card">
+            <div class="card-header">
+                <img src="https://via.placeholder.com/400x200" alt="news-image" id="news-img">
+            </div>
+            <div class="card-content">
+                <h3 id="news-title">This is the Title</h3>
+                <h6 class="news-source" id="news-source">End Gadget 26/08/2023</h6>
+                <p class="news-desc" id="news-desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae saepe quis voluptatum quisquam vitae doloremque facilis molestias quae ratione cumque!</p>
+            </div>
+        </div>
+    </template>
+    <!-- <iframe width="350" height="430" color="red" 
+      allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/5a8b9b3a-684f-42c3-82d2-8a9e299e6566"></iframe>    <script src="script.js"></script> -->
+
+
+
+
+
+     
+
+
+
+      <script type="module" src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
